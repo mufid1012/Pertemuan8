@@ -6,6 +6,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.model_viewmodel.model.DataJK
+import com.example.model_viewmodel.view.FormSiswa
+import com.example.model_viewmodel.view.TampilSiswa
+import com.example.model_viewmodel.viewmodel.SiswaViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 enum class Navigasi {
     Formulir,
@@ -18,4 +26,14 @@ fun SiswaApp(
     modifier: Modifier = Modifier,
     viewModel: SiswaViewModel = viewModel(),
     navController: NavHostController = rememberNavController()
-)
+) {
+
+    Scaffold { isiRuang ->
+
+        val uiState = viewModel.statusUI.collectAsState()
+
+        NavHost(
+            navController = navController,
+            startDestination = Navigasi.Formulir.name,
+            modifier = Modifier.padding(isiRuang)
+        )
