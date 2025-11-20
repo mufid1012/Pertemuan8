@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.model_viewmodel.model.DataJK
+import androidx.compose.foundation.layout.padding
 import com.example.model_viewmodel.view.FormSiswa
 import com.example.model_viewmodel.view.TampilSiswa
 import com.example.model_viewmodel.viewmodel.SiswaViewModel
@@ -36,7 +37,7 @@ fun SiswaApp(
             navController = navController,
             startDestination = Navigasi.Formulir.name,
             modifier = Modifier.padding(isiRuang)
-        ){
+        ) {
 
             composable(route = Navigasi.Formulir.name) {
 
