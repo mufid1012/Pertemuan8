@@ -1,24 +1,28 @@
-package com.example.model_viewmodel.view
+package com.example.praktikum8.view
 
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.TopAppBar
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import java.lang.reflect.Modifier
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.Alignment
+import com.example.model_viewmodel.R
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormSiswa(
     pilihanJK: List<String>,
-    onSubmitClicked: (MutableList<String>) -> Unit
+    onSubmitButtonClicked: (MutableList<String>) -> Unit,
     modifier: Modifier = Modifier
-){
-    var txtNama by rememberSaveable { mutableStateOf(value = "") }
-    var txtAlamat by rememberSaveable { mutableStateOf(value = "") }
-    var txtGender by rememberSaveable { mutableStateOf(value = "") }
-    val listData: MutableList<String> = mutableListOf(txtNama, txtGender, txtAlamat)
+) {
+    var txtNama by remember { mutableStateOf("") }
+    var txtAlamat by remember { mutableStateOf("") }
+    var txtGender by remember { mutableStateOf("") }
 
     Scaffold(
         modifier = Modifier,
@@ -55,7 +59,6 @@ fun FormSiswa(
                 thickness = 1.dp,
                 color = Color.Blue
             )
-
             Row {
                 pilihanJK.forEach { item ->
 
