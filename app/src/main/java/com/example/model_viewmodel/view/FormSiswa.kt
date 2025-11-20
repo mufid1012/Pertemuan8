@@ -1,4 +1,4 @@
-package com.example.praktikum8.view
+package com.example.model_viewmodel.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
